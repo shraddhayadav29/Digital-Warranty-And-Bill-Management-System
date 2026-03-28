@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2>Extend Warranty</h2>
+
+<div class="form-card">
+    <p><b>Product:</b> {{ bill.product_name }}</p>
+    <p><b>Current Expiry:</b> {{ bill.expiry_date }}</p>
+
+    <form method="post">
+        {% csrf_token %}
+        
+        <label>Extend by (months):</label>
+        <input type="number" name="months" min="1" required>
+
+        <button type="submit" class="btn">Extend Warranty</button>
+    </form>
+</div>
+
+{% endblock %}

@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="hero">
+  <div class="hero-content">
+    <h1>Welcome to Digital Warranty System</h1>
+    <p>Manage your product warranties easily and never miss expiry dates</p>
+
+    {% if user.is_authenticated %}
+      <a href="{% url 'add' %}" class="hero-btn">Add Your First Bill</a>
+    {% else %}
+      <a href="{% url 'register' %}" class="hero-btn">Get Started</a>
+    {% endif %}
+  </div>
+</div>
+</section>
+<section class="features">
+    <h2 class="section-title">Why Choose Us?</h2>
+
+    <div class="feature-container">
+
+        <div class="feature-card">
+            <div class="icon">📅</div>
+            <h3>Smart Tracking</h3>
+            <p>Manage all your bills in one place with an easy-to-use interface.</p>
+        </div>
+
+        <div class="feature-card">
+            <div class="icon">🔔</div>
+            <h3>Smart Reminders</h3>
+            <p>Never miss a due date with automatic reminders and alerts.</p>
+        </div>
+
+        <div class="feature-card">
+            <div class="icon">📊</div>
+            <h3>Clean Dashboard</h3>
+            <p>Visualize your expenses and stay financially organized.</p>
+        </div>
+
+    </div>
+</section>
+<div class="cta-section">
+  <h2>Ready to Stay Organized?</h2>
+  <p>Start managing your bills and warranties effortlessly today.</p>
+
+  <div class="cta-buttons">
+    <a href="{% url 'register' %}" class="cta-btn primary">Create Free Account</a>
+    <a href="{% url 'add' %}" class="cta-btn secondary">Add Your First Bill</a>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="footer-content">
+    <h3>Digital Warranty System</h3>
+    <p>Manage your bills and warranties easily in one place.</p>
+
+    <p class="footer-credit">
+      © 2026 Digital Warranty System <br>
+      Developed by Shraddha Yadav & Prajakta Warkhade
+    </p>
+  </div>
+</footer>
+
+{% endblock %}
+
+
+

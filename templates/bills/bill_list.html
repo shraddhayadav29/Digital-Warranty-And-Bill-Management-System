@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2>My Bills</h2>
+
+<div class="bill-grid">
+    {% for bill in bills %}
+        <div class="bill-card">
+            <h3>{{ bill.product_name }}</h3>
+
+            <p><b>Purchase:</b> {{ bill.purchase_date }}</p>
+            <p><b>Expiry:</b> {{ bill.expiry_date }}</p>
+
+            {% if bill.bill_image %}
+                <img src="{{ bill.bill_image.url }}" class="bill-img">
+            {% endif %}
+
+            <div class="bill-actions">
+                <a href="{% url 'extend_warranty' bill.id %}" class="btn">Extend</a>
+                <a href="{% url 'delete_bill' bill.id %}" class="btn danger">Delete</a>
+            </div>
+        </div>
+    {% empty %}
+        <p>No bills added yet.</p>
+    {% endfor %}
+</div>
+
+{% endblock %}

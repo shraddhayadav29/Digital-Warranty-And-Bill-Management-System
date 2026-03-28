@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<style>
+.dashboard-section {
+    min-height: 100vh;
+    padding: 60px 20px;
+}
+
+.dashboard-card {
+    border-radius: 15px;
+    transition: 0.3s;
+}
+
+.dashboard-card:hover {
+    transform: translateY(-8px);
+}
+</style>
+
+<div class="dashboard-section">
+    <div class="container">
+
+        <h2 class="text-center text-white mb-5 fw-bold">
+            Dashboard Overview
+        </h2>
+
+        <div class="row g-4">
+
+            <div class="col-md-3">
+                <div class="card dashboard-card shadow bg-primary text-white text-center p-4">
+                    <h5>Total Bills</h5>
+                    <h2>{{ total_bills }}</h2>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="card dashboard-card shadow bg-success text-white text-center p-4">
+                    <h5>Active</h5>
+                    <h2>{{ active }}</h2>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="card dashboard-card shadow bg-danger text-white text-center p-4">
+                    <h5>Expired</h5>
+                    <h2>{{ expired }}</h2>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="card dashboard-card shadow bg-warning text-dark text-center p-4">
+                    <h5>Expiring Soon</h5>
+                    <h2>{{ expiring_soon }}</h2>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}
