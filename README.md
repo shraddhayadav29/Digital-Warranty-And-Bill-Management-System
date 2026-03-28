@@ -10,4 +10,4 @@ This project helps users store bills digitally and track warranty expiry dates.
 - User authentication
 
 ## Developed By
-Shraddha Yadav & [Friend Name]
+Shraddha Yadav 
