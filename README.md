@@ -3,11 +3,16 @@
 This project helps users store bills digitally and track warranty expiry dates.
 
 ## Features
-- Add and manage bills
-- Upload bill images
-- Track warranty status
-- Download bills
-- User authentication
+- User Registration & Login
+- Add Bills with Images
+- Track Warranty Expiry
+- Download Bills
+- Clean UI Dashboard
+
+## Technologies Used
+- Python (Django)
+- HTML, CSS
+- SQLite
 
 ## Developed By
-Shraddha Yadav 
+Shraddha Yadav & Prajakta Warkhade
