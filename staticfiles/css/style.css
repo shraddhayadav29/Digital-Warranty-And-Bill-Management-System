@@ -1,4 +1,8 @@
-/* RESET */
+.container {
+    max-width: 100% !important;
+    padding: 0 !important;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -97,13 +101,11 @@ body {
     z-index: 1;
 }
 
-/* TEXT CONTENT */
 .hero-content {
     position: relative;
     z-index: 2;
-    color: white;
     text-align: center;
-    width: 90%;
+    color: white;
 }
 
 .hero-content h1 {
@@ -334,4 +336,11 @@ form textarea {
     .cta-section {
         width: 95%;
     }
+}
+
+.main-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
 }
