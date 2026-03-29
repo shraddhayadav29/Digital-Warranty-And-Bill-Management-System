@@ -351,20 +351,20 @@ form textarea {
 }
 
 
-/* ===== FIX MOBILE FULL WIDTH ISSUE ===== */
 html, body {
-    width: 100%;
     overflow-x: hidden;
 }
 
+body > * {
+    max-width: 100vw;
+}
+
 /* Make container full width */
-.container 
-.container-fluid{
-    width: 100% !important;
-    max-width: 100% !important;
-    padding-left: 15px;
-    padding-right: 15px;
+.container {
+    width: 100%;
+    max-width: 1200px;
     margin: 0 auto;
+    padding: 0 15px;
 }
 
 /* Fix sections width */
@@ -408,40 +408,40 @@ html, body {
 /* HAMBURGER */
 .menu-toggle {
     display: none;
-    font-size: 26px;
-    color: white;
+    font-size: 24px;
     cursor: pointer;
 }
 
-/* MOBILE NAV */
+/* MOBILE MENU */
 @media (max-width: 768px) {
 
     .menu-toggle {
         display: block;
+        color: white;
     }
 
     .nav-right {
         display: none;
-        flex-direction: column;
         width: 100%;
+        flex-direction: column;
         background: black;
-        position: absolute;
-        top: 60px;
-        left: 0;
-        padding: 20px;
+        padding: 10px 0;
     }
 
     .nav-right.active {
         display: flex;
     }
 
-    .nav-right a {
-        padding: 10px 0;
-        border-bottom: 1px solid #333;
+    .nav-right a,
+    .nav-right form {
+        padding: 10px 20px;
+        width: 100%;
     }
+}
 
-    .navbar {
-        flex-direction: row;
-        justify-content: space-between;
-    }
+
+.main-wrapper {
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
 }
