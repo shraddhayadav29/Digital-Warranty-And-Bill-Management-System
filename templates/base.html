@@ -3,16 +3,25 @@
 <html>
 <head>
     <title>Digital Warranty System</title>
+
+    <!-- Mobile responsiveness -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- CSS -->
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Icons -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 </head>
 
 <body>
+
+<!-- NAVBAR -->
 <nav class="navbar">
-    <div class="nav-left">
-        <div class="logo">Digital Warranty</div>
-    </div>
+    <div class="logo">Digital Warranty</div>
 
     <div class="nav-right">
         <a href="{% url 'home' %}">Home</a>
@@ -31,19 +40,25 @@
         {% endif %}
     </div>
 </nav>
-<!-- Moving Info Bar -->
+
+<!-- ✅ SHOW SLIDER ONLY ON HOME PAGE -->
+{% if request.path == '/' %}
 <div class="top-slider">
     <div class="slider-track">
         <span>📸 Upload your bill in seconds</span>
         <span>⏳ Track warranty expiry automatically</span>
         <span>🔔 Get reminder notifications before expiry</span>
+
+        <!-- duplicate for smooth loop -->
         <span>📸 Upload your bill in seconds</span>
         <span>⏳ Track warranty expiry automatically</span>
         <span>🔔 Get reminder notifications before expiry</span>
     </div>
 </div>
+{% endif %}
 
-<div class="container">
+<!-- CONTENT -->
+<div class="main-container">
     {% block content %}
     {% endblock %}
 </div>
