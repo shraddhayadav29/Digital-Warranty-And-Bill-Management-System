@@ -1,8 +1,3 @@
-.container {
-    max-width: 100% !important;
-    padding: 0 !important;
-}
-
 * {
     margin: 0;
     padding: 0;
@@ -10,14 +5,16 @@
     font-family: 'Poppins', sans-serif;
 }
 
-/* BODY */
 body {
+    margin: 0;
+    padding: 0;
     background: linear-gradient(135deg, #4e73df, #1cc88a);
-    min-height: 100vh;
     overflow-x: hidden;
 }
 
-/* ================= NAVBAR ================= */
+html, body {
+    overflow-x: hidden;
+}
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -343,12 +340,7 @@ form textarea {
     }
 }
 
-.main-container {
-    width: 100%;
-    max-width: 1200px;
-    margin: auto;
-    padding: 20px;
-}
+
 
 
 html, body {
@@ -359,13 +351,7 @@ body > * {
     max-width: 100vw;
 }
 
-/* Make container full width */
-.container {
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 15px;
-}
+
 
 /* Fix sections width */
 .features,
@@ -444,4 +430,28 @@ body > * {
     width: 100%;
     max-width: 1200px;
     margin: auto;
+}
+
+/* ===== FINAL WIDTH FIX ===== */
+
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+.container-wrapper {
+    width: 100%;
+}
+
+.hero,
+.features,
+.cta-section,
+.footer,
+.top-slider {
+    width: 100%;
+    margin: 0;
+    padding-left: 0;
+    padding-right: 0;
 }
