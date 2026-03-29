@@ -81,12 +81,17 @@ body {
 /* ================= HERO SECTION ================= */
 .hero {
     position: relative;
-    height: 85vh;
-    overflow: hidden;
+    height: 70vh;
+    width: 100%;
+    background: url("../images/warranty-bg.png") no-repeat center center/cover;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: url("../images/warranty-bg.png") center/cover no-repeat;
+}
+
+/* Fix weird overflow */
+.hero img {
+    display: none;
 }
 
 /* DARK OVERLAY */
@@ -353,7 +358,8 @@ html, body {
 }
 
 /* Make container full width */
-.container {
+.container 
+.container-fluid{
     width: 100% !important;
     max-width: 100% !important;
     padding-left: 15px;
@@ -394,5 +400,48 @@ html, body {
 
     .cta-section {
         width: 95%;
+    }
+}
+
+
+
+/* HAMBURGER */
+.menu-toggle {
+    display: none;
+    font-size: 26px;
+    color: white;
+    cursor: pointer;
+}
+
+/* MOBILE NAV */
+@media (max-width: 768px) {
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-right {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background: black;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        padding: 20px;
+    }
+
+    .nav-right.active {
+        display: flex;
+    }
+
+    .nav-right a {
+        padding: 10px 0;
+        border-bottom: 1px solid #333;
+    }
+
+    .navbar {
+        flex-direction: row;
+        justify-content: space-between;
     }
 }

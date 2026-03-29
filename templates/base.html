@@ -21,16 +21,23 @@
 
 <!-- NAVBAR -->
 <nav class="navbar">
-    <div class="logo">Digital Warranty</div>
+    <div class="nav-left">
+        <div class="logo">Digital Warranty</div>
+    </div>
 
-    <div class="nav-right">
+    <!-- Hamburger -->
+    <div class="menu-toggle" onclick="toggleMenu()">
+        ☰
+    </div>
+
+    <div class="nav-right" id="navMenu">
         <a href="{% url 'home' %}">Home</a>
         <a href="{% url 'add' %}">Add Bill</a>
         <a href="{% url 'bill_list' %}">My Bills</a>
         <a href="{% url 'dashboard' %}">Dashboard</a>
 
         {% if user.is_authenticated %}
-            <form method="POST" action="{% url 'logout' %}" style="display:inline;">
+            <form method="POST" action="{% url 'logout' %}">
                 {% csrf_token %}
                 <button type="submit" class="logout-btn">Logout</button>
             </form>
@@ -40,6 +47,7 @@
         {% endif %}
     </div>
 </nav>
+
 
 <!-- ✅ SHOW SLIDER ONLY ON HOME PAGE -->
 {% if request.path == '/' %}
@@ -63,5 +71,11 @@
     {% endblock %}
 </div>
 
+
+<script>
+function toggleMenu() {
+    document.getElementById("navMenu").classList.toggle("active");
+}
+</script>
 </body>
 </html>
