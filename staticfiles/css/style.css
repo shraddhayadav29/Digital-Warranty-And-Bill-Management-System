@@ -15,27 +15,14 @@ body {
 html, body {
     overflow-x: hidden;
 }
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 30px;
-    background: #000;
-    color: white;
-    flex-wrap: wrap;
-}
+
 
 .logo {
     font-size: 20px;
     font-weight: bold;
 }
 
-.nav-right {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    flex-wrap: wrap;
-}
+
 
 .nav-right a {
     color: white;
@@ -309,15 +296,6 @@ form textarea {
 /* ================= MOBILE ================= */
 @media (max-width: 768px) {
 
-    .navbar {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .nav-right {
-        justify-content: center;
-        gap: 10px;
-    }
 
     .hero {
         height: 65vh;
@@ -369,16 +347,6 @@ body > * {
 
 /* Navbar wrap for mobile */
 @media (max-width: 768px) {
-    .navbar {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .nav-right {
-        flex-wrap: wrap;
-        gap: 10px;
-        margin-top: 10px;
-    }
 
     .hero-content {
         width: 95%;
@@ -391,32 +359,10 @@ body > * {
 
 
 
-/* HAMBURGER */
-.menu-toggle {
-    display: none;
-    font-size: 24px;
-    cursor: pointer;
-}
+
 
 /* MOBILE MENU */
 @media (max-width: 768px) {
-
-    .menu-toggle {
-        display: block;
-        color: white;
-    }
-
-    .nav-right {
-        display: none;
-        width: 100%;
-        flex-direction: column;
-        background: black;
-        padding: 10px 0;
-    }
-
-    .nav-right.active {
-        display: flex;
-    }
 
     .nav-right a,
     .nav-right form {
