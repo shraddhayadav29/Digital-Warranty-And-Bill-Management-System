@@ -95,6 +95,8 @@ html, body {
     z-index: 2;
     text-align: center;
     color: white;
+    max-width: 700px;
+    margin: 0 auto;
 }
 
 .hero-content h1 {
@@ -149,6 +151,8 @@ html, body {
     padding: 80px 20px;
     background: #f8f9fc;
     text-align: center;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .section-title {
@@ -254,7 +258,7 @@ form textarea {
     padding: 60px 20px;
     background: #fff;
     border-radius: 15px;
-    width: 90%;
+    max-width: 800px;
     margin: 40px auto;
 }
 
@@ -325,10 +329,6 @@ html, body {
     overflow-x: hidden;
 }
 
-body > * {
-    max-width: 100vw;
-}
-
 
 
 /* Fix sections width */
@@ -388,7 +388,9 @@ html, body {
 }
 
 .container-wrapper {
-    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
 }
 
 .hero,
