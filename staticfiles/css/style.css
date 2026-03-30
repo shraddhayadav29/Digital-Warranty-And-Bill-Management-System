@@ -6,60 +6,8 @@
 }
 
 body {
-    margin: 0;
-    padding: 0;
     background: linear-gradient(135deg, #4e73df, #1cc88a);
     overflow-x: hidden;
-}
-
-html, body {
-    overflow-x: hidden;
-}
-
-
-.logo {
-    font-size: 20px;
-    font-weight: bold;
-}
-
-
-
-.nav-right a {
-    color: white;
-    text-decoration: none;
-    font-size: 14px;
-}
-
-.nav-right a:hover {
-    color: #f0c040;
-}
-
-/* NAV BUTTONS */
-.login-btn,
-.register-btn,
-.logout-btn {
-    padding: 6px 12px;
-    border-radius: 6px;
-    font-weight: 600;
-    text-decoration: none;
-    font-size: 13px;
-}
-
-.login-btn {
-    background: #28a745;
-    color: white !important;
-}
-
-.register-btn {
-    background: #007bff;
-    color: white !important;
-}
-
-.logout-btn {
-    background: #dc3545;
-    color: white;
-    border: none;
-    cursor: pointer;
 }
 
 /* ================= HERO SECTION ================= */
@@ -67,18 +15,13 @@ html, body {
     position: relative;
     height: 70vh;
     width: 100%;
-    background: url("../images/warranty-bg.png") no-repeat center center/cover;
+    background: url("../images/warranty-bg.png") no-repeat center center;
+    background-size: cover;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-/* Fix weird overflow */
-.hero img {
-    display: none;
-}
-
-/* DARK OVERLAY */
 .hero::before {
     content: "";
     position: absolute;
@@ -96,13 +39,12 @@ html, body {
     text-align: center;
     color: white;
     max-width: 700px;
-    margin: 0 auto;
+    padding: 0 15px;
 }
 
 .hero-content h1 {
     font-size: 40px;
     font-weight: bold;
-    line-height: 1.2;
 }
 
 .hero-content p {
@@ -135,12 +77,6 @@ html, body {
     animation: scroll 20s linear infinite;
 }
 
-.slider-track span {
-    font-size: 14px;
-    font-weight: 500;
-}
-
-/* ANIMATION */
 @keyframes scroll {
     0% { transform: translateX(0); }
     100% { transform: translateX(-50%); }
@@ -150,26 +86,17 @@ html, body {
 .features {
     padding: 80px 20px;
     background: #f8f9fc;
-    text-align: center;
+}
+
+.features .container {
     max-width: 1200px;
-    margin: 0 auto;
+    margin: auto;
+    text-align: center;
 }
 
 .section-title {
     font-size: 32px;
     margin-bottom: 40px;
-    position: relative;
-    display: inline-block;
-}
-
-.section-title::after {
-    content: "";
-    width: 60%;
-    height: 4px;
-    background: linear-gradient(90deg, #4e73df, #1cc88a);
-    position: absolute;
-    left: 20%;
-    bottom: -10px;
 }
 
 .feature-container {
@@ -190,15 +117,6 @@ html, body {
 
 .feature-card:hover {
     transform: translateY(-8px);
-}
-
-.feature-card h3 {
-    margin-bottom: 10px;
-}
-
-.feature-card p {
-    font-size: 14px;
-    color: #555;
 }
 
 /* ================= FORM ================= */
@@ -242,16 +160,6 @@ form textarea {
     border-radius: 10px;
 }
 
-/* ================= BUTTON ================= */
-.btn {
-    padding: 10px;
-    border-radius: 8px;
-    background: #4e73df;
-    color: white;
-    text-align: center;
-    display: inline-block;
-}
-
 /* ================= CTA ================= */
 .cta-section {
     text-align: center;
@@ -262,44 +170,16 @@ form textarea {
     margin: 40px auto;
 }
 
-.cta-buttons {
-    margin-top: 20px;
-}
-
-.cta-btn {
-    padding: 10px 20px;
-    margin: 5px;
-    border-radius: 6px;
-    text-decoration: none;
-}
-
-.cta-btn.primary {
-    background: #4e73df;
-    color: white;
-}
-
-.cta-btn.secondary {
-    border: 1px solid #4e73df;
-    color: #4e73df;
-}
-
 /* ================= FOOTER ================= */
 .footer {
     background: #000;
     color: #fff;
     padding: 30px;
     text-align: center;
-    margin-top: 50px;
-}
-
-.footer p {
-    font-size: 13px;
-    color: #aaa;
 }
 
 /* ================= MOBILE ================= */
 @media (max-width: 768px) {
-
 
     .hero {
         height: 65vh;
@@ -320,86 +200,4 @@ form textarea {
     .cta-section {
         width: 95%;
     }
-}
-
-
-
-
-html, body {
-    overflow-x: hidden;
-}
-
-
-
-/* Fix sections width */
-.features,
-.cta-section,
-.footer {
-    width: 100% !important;
-    max-width: 100% !important;
-    margin-left: 0 !important;
-}
-
-/* Hero full width */
-.hero {
-    width: 100%;
-}
-
-/* Navbar wrap for mobile */
-@media (max-width: 768px) {
-
-    .hero-content {
-        width: 95%;
-    }
-
-    .cta-section {
-        width: 95%;
-    }
-}
-
-
-
-
-
-/* MOBILE MENU */
-@media (max-width: 768px) {
-
-    .nav-right a,
-    .nav-right form {
-        padding: 10px 20px;
-        width: 100%;
-    }
-}
-
-
-.main-wrapper {
-    width: 100%;
-    max-width: 1200px;
-    margin: auto;
-}
-
-/* ===== FINAL WIDTH FIX ===== */
-
-html, body {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    overflow-x: hidden;
-}
-
-.container-wrapper {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 15px;
-}
-
-.hero,
-.features,
-.cta-section,
-.footer,
-.top-slider {
-    width: 100%;
-    margin: 0;
-    padding-left: 0;
-    padding-right: 0;
 }
