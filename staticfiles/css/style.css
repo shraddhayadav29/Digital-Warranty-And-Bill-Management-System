@@ -75,7 +75,7 @@ img {
 }
 
 /* ================= TOP SLIDER ================= */
-.top-slider {
+/* .top-slider {
     width: 100%;
     overflow: hidden;
     background: #ffffff;
@@ -87,7 +87,7 @@ img {
     gap: 40px;
     white-space: nowrap;
     animation: scroll 20s linear infinite;
-}
+} */
 
 @keyframes scroll {
     0% { transform: translateX(0); }
