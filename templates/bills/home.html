@@ -2,8 +2,7 @@
 
 {% block content %}
 
-<!-- HERO -->
-<div class="hero">
+<section class="hero">
   <div class="hero-content">
     <h1>Welcome to Digital Warranty System</h1>
     <p>Manage your product warranties easily and never miss expiry dates</p>
@@ -14,16 +13,13 @@
       <a href="{% url 'register' %}" class="hero-btn">Get Started</a>
     {% endif %}
   </div>
-</div>
+</section>
 
-<!-- FEATURES -->
 <section class="features">
   <div class="container">
-
     <h2 class="section-title">Why Choose Us?</h2>
 
     <div class="feature-container">
-
         <div class="feature-card">
             <div class="icon">📅</div>
             <h3>Smart Tracking</h3>
@@ -41,13 +37,11 @@
             <h3>Clean Dashboard</h3>
             <p>Visualize your expenses and stay financially organized.</p>
         </div>
-
     </div>
-
   </div>
 </section>
 
-<div class="cta-section">
+<section class="cta-section">
   <div class="container">
     <h2>Ready to Stay Organized?</h2>
     <p>Start managing your bills and warranties effortlessly today.</p>
@@ -57,9 +51,8 @@
       <a href="{% url 'add' %}" class="cta-btn secondary">Add Your First Bill</a>
     </div>
   </div>
-</div>
+</section>
 
-<!-- FOOTER -->
 <footer class="footer">
   <div class="footer-content">
     <h3>Digital Warranty System</h3>
@@ -71,8 +64,6 @@
     </p>
   </div>
 </footer>
-
-<div class="container">
 
 {% endblock %}
 
