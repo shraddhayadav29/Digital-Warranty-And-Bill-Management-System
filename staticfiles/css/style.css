@@ -8,51 +8,38 @@
 
 html, body {
     width: 100%;
-    overflow-x: hidden; /* Prevents horizontal scrolling */
+    overflow-x: hidden;
     scroll-behavior: smooth;
 }
 
 body {
-    /* Fixed background to prevent the 'striping' effect when scrolling */
     background: linear-gradient(135deg, #4e73df, #1cc88a);
     background-attachment: fixed;
     min-height: 100vh;
 }
 
-img, div {
+/* ✅ FIX: Only apply to images, NOT divs */
+img {
     max-width: 100%;
-}
-
-/* ================= LAYOUT COMPONENTS ================= */
-.container {
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    padding: 0 15px;
+    height: auto;
 }
 
 /* ================= HERO SECTION ================= */
 .hero {
     width: 100%;
     height: 70vh;
-    position: relative; /* CRITICAL: Keeps the ::before overlay contained */
+    position: relative;
     background: url("../images/warranty-bg.png") center/cover no-repeat;
     display: flex;
     align-items: center;
     justify-content: center;
-    overflow: hidden;
 }
 
 .hero::before {
     content: "";
     position: absolute;
-    width: 100%;
-    height: 100%;
+    inset: 0; /* cleaner than width/height/top/left */
     background: rgba(0,0,0,0.5);
-    top: 0;
-    left: 0;
     z-index: 1;
 }
 
@@ -68,7 +55,6 @@ img, div {
 .hero-content h1 {
     font-size: 40px;
     font-weight: bold;
-    line-height: 1.2;
 }
 
 .hero-content p {
@@ -90,16 +76,15 @@ img, div {
 /* ================= TOP SLIDER ================= */
 .top-slider {
     width: 100%;
-    overflow: hidden; /* Clips the moving animation */
+    overflow: hidden;
     background: #ffffff;
     padding: 15px 0;
-    border-bottom: 1px solid #eee;
 }
 
 .slider-track {
     display: flex;
     gap: 40px;
-    width: max-content; /* Ensures content doesn't wrap */
+    width: max-content;
     animation: scroll 30s linear infinite;
 }
 
@@ -110,8 +95,9 @@ img, div {
 
 /* ================= FEATURES ================= */
 .features {
-    padding: 80px 0;
+    padding: 80px 20px;
     background: #f8f9fc;
+    width: 100%;
 }
 
 .section-title {
@@ -125,7 +111,6 @@ img, div {
     justify-content: center;
     gap: 25px;
     flex-wrap: wrap;
-    width: 100%;
 }
 
 .feature-card {
@@ -134,12 +119,7 @@ img, div {
     width: 280px;
     border-radius: 15px;
     box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-    transition: transform 0.3s ease;
     text-align: center;
-}
-
-.feature-card:hover {
-    transform: translateY(-8px);
 }
 
 /* ================= FORM ================= */
@@ -150,17 +130,6 @@ img, div {
     padding: 30px;
     border-radius: 15px;
     background: white;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-}
-
-form input,
-form select,
-form textarea {
-    width: 100%;
-    padding: 12px;
-    margin-bottom: 15px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
 }
 
 /* ================= BILL GRID ================= */
@@ -177,14 +146,6 @@ form textarea {
     background: white;
     padding: 20px;
     border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-}
-
-.bill-img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 10px;
 }
 
 /* ================= CTA ================= */
@@ -195,7 +156,6 @@ form textarea {
     border-radius: 15px;
     max-width: 800px;
     margin: 40px auto;
-    width: 90%;
 }
 
 /* ================= FOOTER ================= */
@@ -207,8 +167,9 @@ form textarea {
     width: 100%;
 }
 
-/* ================= MOBILE RESPONSIVENESS ================= */
+/* ================= MOBILE ================= */
 @media (max-width: 768px) {
+
     .hero {
         height: 60vh;
     }
@@ -222,8 +183,7 @@ form textarea {
     }
 
     .feature-card {
-        width: 100%; /* Stacks cards nicely on mobile */
-        max-width: 320px;
+        width: 90%;
     }
 
     .section-title {
@@ -231,7 +191,7 @@ form textarea {
     }
 
     .bill-grid {
-        grid-template-columns: 1fr; /* Single column on small screens */
+        grid-template-columns: 1fr;
     }
 }
 
