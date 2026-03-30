@@ -1,87 +1,56 @@
 {% load static %}
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
     <title>Digital Warranty System</title>
 
-    <!-- Mobile responsiveness -->
-     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-
-    <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Icons -->
+    
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 
 <body>
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
-
-    <!-- Logo -->
     <a class="navbar-brand" href="{% url 'home' %}">Digital Warranty</a>
-
-    <!-- Hamburger -->
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
       <span class="navbar-toggler-icon"></span>
     </button>
-
-    <!-- Links -->
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto">
-
-        <li class="nav-item">
-          <a class="nav-link" href="{% url 'home' %}">Home</a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link" href="{% url 'add' %}">Add Bill</a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link" href="{% url 'bill_list' %}">My Bills</a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link" href="{% url 'dashboard' %}">Dashboard</a>
-        </li>
+        <li class="nav-item"><a class="nav-link" href="{% url 'home' %}">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="{% url 'add' %}">Add Bill</a></li>
+        <li class="nav-item"><a class="nav-link" href="{% url 'bill_list' %}">My Bills</a></li>
+        <li class="nav-item"><a class="nav-link" href="{% url 'dashboard' %}">Dashboard</a></li>
 
         {% if user.is_authenticated %}
         <li class="nav-item">
-          <form method="POST" action="{% url 'logout' %}">
+          <form method="POST" action="{% url 'logout' %}" style="display:inline;">
             {% csrf_token %}
-            <button class="btn btn-danger ms-2">Logout</button>
+            <button class="btn btn-danger btn-sm ms-2" type="submit">Logout</button>
           </form>
         </li>
         {% else %}
-        <li class="nav-item">
-          <a class="btn btn-success ms-2" href="{% url 'login' %}">Login</a>
-        </li>
-        <li class="nav-item">
-          <a class="btn btn-primary ms-2" href="{% url 'register' %}">Register</a>
-        </li>
+        <li class="nav-item"><a class="btn btn-success btn-sm ms-2" href="{% url 'login' %}">Login</a></li>
+        <li class="nav-item"><a class="btn btn-primary btn-sm ms-2" href="{% url 'register' %}">Register</a></li>
         {% endif %}
-
       </ul>
     </div>
-
   </div>
 </nav>
 
-
-<!-- ✅ SHOW SLIDER ONLY ON HOME PAGE -->
 {% if request.path == '/' %}
 <div class="top-slider">
     <div class="slider-track">
         <span>📸 Upload your bill in seconds</span>
         <span>⏳ Track warranty expiry automatically</span>
         <span>🔔 Get reminder notifications before expiry</span>
-
-        <!-- duplicate for smooth loop -->
         <span>📸 Upload your bill in seconds</span>
         <span>⏳ Track warranty expiry automatically</span>
         <span>🔔 Get reminder notifications before expiry</span>
@@ -89,11 +58,10 @@
 </div>
 {% endif %}
 
-<!-- CONTENT -->
-<div class="container-fluid p-0">
+<main class="main-wrapper">
     {% block content %}
     {% endblock %}
-
+</main>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
