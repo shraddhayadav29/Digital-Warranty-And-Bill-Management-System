@@ -16,6 +16,7 @@ body {
     background: linear-gradient(135deg, #4e73df, #1cc88a);
     background-attachment: fixed;
     min-height: 100vh;
+    overflow-x: hidden;
 }
 
 /* ✅ FIX: Only apply to images, NOT divs */
@@ -84,8 +85,8 @@ img {
 .slider-track {
     display: flex;
     gap: 40px;
-    width: max-content;
-    animation: scroll 30s linear infinite;
+    white-space: nowrap;
+    animation: scroll 20s linear infinite;
 }
 
 @keyframes scroll {
