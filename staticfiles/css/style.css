@@ -7,9 +7,6 @@ img, div {
     max-width: 100%;
 }
 
-* {
-    max-width: 100%;
-}
 
 * {
     margin: 0;
@@ -207,5 +204,10 @@ form textarea {
     .cta-section {
         width: 95%;
     }
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
 }
 
