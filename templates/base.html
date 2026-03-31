@@ -59,6 +59,17 @@
 {% endif %}
 
 <main class="main-wrapper">
+
+
+{% if messages %}
+    <div class="message-container">
+        {% for message in messages %}
+            <div class="alert {{ message.tags }}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    </div>
+{% endif %}
     {% block content %}
     {% endblock %}
 </main>

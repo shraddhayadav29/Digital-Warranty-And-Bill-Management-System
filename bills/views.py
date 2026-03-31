@@ -10,24 +10,50 @@ from datetime import timedelta
 from django.shortcuts import get_object_or_404
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login
+from django.contrib import messages
 
 import pytesseract
 
 pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
 
 
+
+from django.contrib.auth import authenticate, login
+
+def login_view(request):
+    if request.method == "POST":
+        username = request.POST.get("username")
+        password = request.POST.get("password")
+
+        user = authenticate(request, username=username, password=password)
+
+        if user is not None:
+            login(request, user)
+            messages.success(request, "Login successful!")  # 🟢
+            return redirect('dashboard')
+        else:
+            messages.error(request, "Invalid username or password")  # 🔴
+
+    return render(request, "bills/login.html")
+
+
 @login_required
 def add_bill(request):
     if request.method == 'POST':
         form = BillForm(request.POST, request.FILES)
+
         if form.is_valid():
             bill = form.save(commit=False)
             bill.user = request.user
             bill.save()
+            messages.success(request, "Bill added successfully!")  # 🟢
             return redirect('add')
+        else:
+            messages.error(request, "Error adding bill. Please try again.")  # 🔴
+
     else:
         form = BillForm()
-    
+
     return render(request, 'bills/add_bill.html', {'form': form})
 
 
@@ -50,6 +76,7 @@ from django.shortcuts import get_object_or_404
 def delete_bill(request, id):
     bill = get_object_or_404(Bill, id=id, user=request.user)
     bill.delete()
+    messages.success(request, "Bill deleted successfully!")  # 🟢
     return redirect('bill_list')
 
 
@@ -155,18 +182,24 @@ def extend_warranty(request, id):
 
 
 
- 
-
 def register(request):
     if request.method == 'POST':
         form = UserCreationForm(request.POST)
+
         if form.is_valid():
             form.save()
-            return redirect('login')   # go to login after register
+            messages.success(request, "Account created successfully!")  # 🟢
+            return redirect('login')
+
+        else:
+            messages.error(request, "Registration failed. Please check details.")  # 🔴
+
     else:
         form = UserCreationForm()
 
     return render(request, 'bills/register.html', {'form': form})
+
+
 
 from django.shortcuts import render
 from .models import Bill
@@ -181,7 +214,7 @@ from datetime import timedelta
 def dashboard(request):
     today = timezone.now().date()
 
-    total_bills = Bill.objects.count()
+    total_bills = Bill.objects.filter(user=request.user).count()
     active = Bill.objects.filter(expiry_date__gt=today).count()
     expired = Bill.objects.filter(expiry_date__lt=today).count()
 

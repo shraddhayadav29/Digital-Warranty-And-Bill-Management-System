@@ -404,3 +404,28 @@ form textarea {
     font-size: 13px;
     color: #aaa;
 }
+
+.message-container {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.alert {
+    padding: 10px;
+    margin: 10px auto;
+    width: 90%;
+    max-width: 500px;
+    border-radius: 5px;
+}
+
+/* 🔴 ERROR */
+.alert.error {
+    background: #f8d7da;
+    color: #721c24;
+}
+
+/* 🟢 SUCCESS */
+.alert.success {
+    background: #d4edda;
+    color: #155724;
+}
