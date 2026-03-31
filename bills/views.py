@@ -16,11 +16,6 @@ import pytesseract
 pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
 
 
-
-
-    
-
-
 @login_required
 def add_bill(request):
     if request.method == 'POST':
