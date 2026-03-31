@@ -75,11 +75,11 @@ img {
 }
 
 /* ================= TOP SLIDER ================= */
-/* .top-slider {
+.top-slider {
     width: 100%;
     overflow: hidden;
     background: #ffffff;
-    padding: 15px 0;
+    padding: 12px 0;
 }
 
 .slider-track {
@@ -87,11 +87,16 @@ img {
     gap: 40px;
     white-space: nowrap;
     animation: scroll 20s linear infinite;
-} */
+}
 
+/* Smooth scrolling */
 @keyframes scroll {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
 }
 
 /* ================= FEATURES ================= */
