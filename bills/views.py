@@ -181,6 +181,7 @@ from datetime import timedelta
 from django.utils import timezone
 from datetime import timedelta
 
+
 @login_required
 def dashboard(request):
     today = timezone.now().date()
