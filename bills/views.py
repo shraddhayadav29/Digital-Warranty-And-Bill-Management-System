@@ -17,6 +17,10 @@ pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tessera
 
 
 
+
+    
+
+
 @login_required
 def add_bill(request):
     if request.method == 'POST':
@@ -177,6 +181,7 @@ from datetime import timedelta
 from django.utils import timezone
 from datetime import timedelta
 
+@login_required
 def dashboard(request):
     today = timezone.now().date()
 
