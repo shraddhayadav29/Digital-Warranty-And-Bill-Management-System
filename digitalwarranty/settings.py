@@ -138,8 +138,9 @@ LOGIN_REDIRECT_URL = "home"
 LOGOUT_REDIRECT_URL = "home"
 
 
+
 DATABASES = {
     'default': dj_database_url.parse(
-        os.environ.get("postgresql://digital_warranty_db_user:xDPNtfigyc2MwW2ALMIgdLmGOHPNEm8j@dpg-d76isqffte5s73el1h20-a.ohio-postgres.render.com/digital_warranty_db")
+        os.environ.get("DATABASE_URL")
     )
 }
