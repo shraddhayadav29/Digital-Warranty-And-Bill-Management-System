@@ -2,23 +2,19 @@ from django.shortcuts import render, redirect
 from .forms import BillForm
 from .models import Bill
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth import authenticate, login
 from django.core.mail import send_mail
 from datetime import date, timedelta
 from django.http import HttpResponse
-from django.shortcuts import render
-from datetime import timedelta
 from django.shortcuts import get_object_or_404
 from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth import login
 from django.contrib import messages
-
+from datetime import datetime
+from PIL import Image
+from django.utils import timezone
 import pytesseract
+import re
 
-pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
-
-
-
-from django.contrib.auth import authenticate, login
 
 def login_view(request):
     if request.method == "POST":
@@ -29,10 +25,10 @@ def login_view(request):
 
         if user is not None:
             login(request, user)
-            messages.success(request, "Login successful!")  # 🟢
+            messages.success(request, "Login successful!")  
             return redirect('dashboard')
         else:
-            messages.error(request, "Invalid username or password")  # 🔴
+            messages.error(request, "Invalid username or password")  
 
     return render(request, "bills/login.html")
 
@@ -46,10 +42,10 @@ def add_bill(request):
             bill = form.save(commit=False)
             bill.user = request.user
             bill.save()
-            messages.success(request, "Bill added successfully!")  # 🟢
+            messages.success(request, "Bill added successfully!")  
             return redirect('add')
         else:
-            messages.error(request, "Error adding bill. Please try again.")  # 🔴
+            messages.error(request, "Error adding bill. Please try again.")  
 
     else:
         form = BillForm()
@@ -58,7 +54,7 @@ def add_bill(request):
 
 
 
-from datetime import date
+
 
 @login_required
 def bill_list(request):
@@ -70,20 +66,12 @@ def bill_list(request):
     })
 
 
-from django.shortcuts import get_object_or_404
-
 @login_required
 def delete_bill(request, id):
     bill = get_object_or_404(Bill, id=id, user=request.user)
     bill.delete()
-    messages.success(request, "Bill deleted successfully!")  # 🟢
+    messages.success(request, "Bill deleted successfully!")  
     return redirect('bill_list')
-
-
-
-from datetime import date, timedelta
-from django.core.mail import send_mail
-from .models import Bill
 
 
 def send_expiry_notifications():
@@ -134,14 +122,6 @@ def trigger_notifications(request):
 
 
 
-
-
-
-import pytesseract
-from PIL import Image
-import re
-from datetime import datetime
-
 pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
 
 
@@ -178,36 +158,22 @@ def extend_warranty(request, id):
 
     return render(request, "bills/extend_warranty.html", {"bill": bill})
 
-
-
-
-
 def register(request):
     if request.method == 'POST':
         form = UserCreationForm(request.POST)
 
         if form.is_valid():
             form.save()
-            messages.success(request, "Account created successfully!")  # 🟢
+            messages.success(request, "Account created successfully!")  
             return redirect('login')
 
         else:
-            messages.error(request, "Registration failed. Please check details.")  # 🔴
+            messages.error(request, "Registration failed. Please check details.")  
 
     else:
         form = UserCreationForm()
 
     return render(request, 'bills/register.html', {'form': form})
-
-
-
-from django.shortcuts import render
-from .models import Bill
-from django.utils import timezone
-from datetime import timedelta
-
-from django.utils import timezone
-from datetime import timedelta
 
 
 @login_required

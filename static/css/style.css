@@ -416,6 +416,7 @@ form textarea {
     width: 90%;
     max-width: 500px;
     border-radius: 5px;
+    timeline-scope: 10s;
 }
 
 /* 🔴 ERROR */

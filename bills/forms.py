@@ -5,3 +5,7 @@ class BillForm(forms.ModelForm):
     class Meta:
         model = Bill
         fields = ['product_name', 'purchase_date', 'expiry_date', 'bill_image']
+        widgets = {
+            'purchase_date': forms.DateInput(attrs={'type': 'date'}),
+            'expiry_date': forms.DateInput(attrs={'type': 'date'}),
+        }
