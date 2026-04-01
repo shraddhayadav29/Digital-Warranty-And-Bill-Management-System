@@ -12,33 +12,28 @@
             <p><b>Purchase:</b> {{ bill.purchase_date }}</p>
             <p><b>Expiry:</b> {{ bill.expiry_date }}</p>
 
-            {% if bill.bill_image %}
-                <img src="{{ bill.bill_image.url }}" class="bill-img">
-            {% endif %}
-
             <div class="bill-actions">
-                <a href="{% url 'extend_warranty' bill.id %}" class="btn">Extend</a>
-                <a href="{% url 'delete_bill' bill.id %}" class="btn danger">Delete</a>
+
+                {% if bill.bill_image %}
+                    <a href="{{ bill.bill_image.url }}" target="_blank" 
+                       class="btn btn-info btn-sm me-2">
+                        View Bill
+                    </a>
+                {% endif %}
+
+                <a href="{% url 'extend_warranty' bill.id %}" 
+                   class="btn btn-warning btn-sm me-2">
+                    Extend
+                </a>
+
+                <a href="{% url 'delete_bill' bill.id %}" 
+                   class="btn btn-danger btn-sm">
+                    Delete
+                </a>
+
             </div>
+
         </div>
-
-{% for bill in bills %}
-
-<div class="card mb-3 p-3">
-    <h5>{{ bill.product_name }}</h5>
-    <p>Purchase Date: {{ bill.purchase_date }}</p>
-    <p>Expiry Date: {{ bill.expiry_date }}</p>
-
-    {% if bill.bill_image %}
-        <a href="{{ bill.bill_image.url }}" target="_blank" class="btn btn-primary btn-sm">
-            View Bill
-        </a>
-    {% else %}
-        <p>No image uploaded</p>
-    {% endif %}
-</div>
-
-{% endfor %}
     {% empty %}
         <p>No bills added yet.</p>
     {% endfor %}
