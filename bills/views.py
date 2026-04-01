@@ -158,20 +158,25 @@ def extend_warranty(request, id):
 
     return render(request, "bills/extend_warranty.html", {"bill": bill})
 
+from .forms import CustomUserCreationForm
+
 def register(request):
     if request.method == 'POST':
-        form = UserCreationForm(request.POST)
+        form = CustomUserCreationForm(request.POST)
 
         if form.is_valid():
-            form.save()
-            messages.success(request, "Account created successfully!")  
+            user = form.save(commit=False)
+            user.email = form.cleaned_data['email']
+            user.save()
+
+            messages.success(request, "Account created successfully!")
             return redirect('login')
 
         else:
-            messages.error(request, "Registration failed. Please check details.")  
+            messages.error(request, "Registration failed. Please check details.")
 
     else:
-        form = UserCreationForm()
+        form = CustomUserCreationForm()  
 
     return render(request, 'bills/register.html', {'form': form})
 

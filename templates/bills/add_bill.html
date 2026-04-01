@@ -8,11 +8,13 @@
     <form method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form.as_p }}
+
+        <img id="preview" src="#" alt="Image Preview" style="display:none; width:200px; margin-top:10px;" />
         <button type="submit" class="btn-primary">Save Bill</button>
     </form>
 </div>
 
-{% endblock %}
+
 
 
 
@@ -28,3 +30,5 @@ input.addEventListener("change", function() {
     }
 });
 </script>
+
+{% endblock %}
