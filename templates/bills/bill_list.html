@@ -4,6 +4,7 @@
 
 <h2>My Bills</h2>
 
+
 <div class="bill-grid">
     {% for bill in bills %}
         <div class="bill-card">
@@ -15,6 +16,7 @@
             <div class="bill-actions">
 
                 {% if bill.bill_image %}
+                <img src="{{ user.profile.image.url }}" alt="profile">
                     <a href="{{ bill.bill_image.url }}" target="_blank" 
                        class="btn btn-info btn-sm me-2">
                         View Bill
