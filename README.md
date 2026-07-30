@@ -15,4 +15,4 @@ This project helps users store bills digitally and track warranty expiry dates.
 - SQLite
 
 ## Developed By
-Shraddha Yadav & Prajakta Warkhade
+Shraddha Yadav
